@@ -19,7 +19,7 @@
                 <nav class="header__navbar">
                     <ul class="header__navbar-list">
                         <li class="header__navbar-item header__navbar-item--has-qr header__navbar-item--separate">
-                            Vào cửa hàng trên ứng dụng F8-Shop
+                            Vào cửa hàng trên ứng dụng 
 
                             <!-- Header QR Code-->
                             <div class="header__qr">
@@ -112,7 +112,7 @@
                                     <a href="">Đơn mua</a>
                                 </li>
                                 <li class="header__navbar-user-item header__navbar-user-item--separate">
-                                    <a href="">Đăng suất</a>
+                                    <a href="/Login/logout">Đăng suất</a>
 
                                 </li>
                             </ul>

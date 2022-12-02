@@ -19,22 +19,37 @@
             <div class="modal__body"> 
                     
                 <!-- Register form -->
-                <div class="auth-form">
+                <form action="/Register/register" method="post" enctype="multipart/form-data" class="auth-form">
                     <div class="auth-form__container">
                         <div class="auth-form__header">
                             <h3 class="auth-form__heading">Đăng ký</h3>
-                            <span class="auth-form__switch-btn">Đăng nhập</span>
+                            <a href="/login" style="text-decoration: none"><span class="auth-form__switch-btn">Đăng nhập</span></a>
                         </div>
+                        <?php
+                            if(isset($data["max"])){ 
+                            
+                                if($data["max"]==true){?>
+                                    <h3 class="alert alert-success justify-content-center"> 
+                                    <?php echo "người dùng đã tồn tại"; ?>
+                                    </h3>
+                                <?php    
+                                }
+                                else{ ?>
+                                    <h3 class="alert alert-warning justify-content-center"> 
+                                    <?php echo "người dùng đã tồn tại"; ?>
+                                    </h3> 
+                        <?php }            
+                                }?>
 
                         <div class="auth-form__form">
                             <div class="auth-form__group">
-                                <input type="text" class="auth-form__input" placeholder="Email của bạn">
+                                <input type="text" name="email" class="auth-form__input" placeholder="Email của bạn">
                             </div>
                             <div class="auth-form__group">
-                                <input type="password" class="auth-form__input" placeholder="Mật khẩu của bạn">
+                                <input type="password" name="pass1" class="auth-form__input" placeholder="Mật khẩu của bạn">
                             </div>
                             <div class="auth-form__group">
-                                <input type="password" class="auth-form__input" placeholder="Nhập lại mật khẩu">
+                                <input type="password" name="pass2" class="auth-form__input" placeholder="Nhập lại mật khẩu">
                             </div>
                         </div>
                         <div class="auth-form__aside">
@@ -47,7 +62,7 @@
 
                         <div class="auth-form__controls">
                             <button class="btn btn--normal auth-form__controls-back ">TRỞ LẠI</button>
-                            <button class="btn btn--primary">ĐĂNG KÝ</button>
+                            <button type="submit" name="submit" class="btn btn--primary">ĐĂNG KÝ</button>
                         </div>
                     </div>
 
@@ -65,7 +80,22 @@
                             </span>
                         </a>
                     </div>
-                </div> 
+                    <?php
+                if(isset($data["result"])){ 
+                
+                    if($data["result"]==true){?>
+                        <h3 class="alert alert-success justify-content-center"> 
+                        <?php echo "Đăng ký thành công"; ?>
+                        </h3>
+                     <?php    
+                    }
+                    else{ ?>
+                        <h3 class="alert alert-warning justify-content-center"> 
+                        <?php echo "Đăng ký thất bại"; ?>
+                        </h3> 
+            <?php }            
+                    }?>
+                </form>      
 
         </div>
    </div> 

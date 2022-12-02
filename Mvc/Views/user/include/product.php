@@ -10,7 +10,6 @@
     <table class="table">
         <tbody>           
             <tr>
-                <th scope="col">STT</th>
                 <th scope="col">Tên sản phẩm</th>
                 <th scope="col">Ảnh sản phẩm</th>
                 <th scope="col">Giá sản phẩm</th>
@@ -32,7 +31,6 @@
         <tbody>
             <tr>
                 <th scope="row">
-                    <td><?php echo $row['id'] ?></td>
                     <td><?php echo $row['name']?></td>
                     <td><img width="30" height="40" src="./public/assets/img/product/<?php echo$row['image']?>" alt="hinh anh"></td>
                     <td><?php echo $row['price']?></td>

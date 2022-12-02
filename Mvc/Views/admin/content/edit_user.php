@@ -18,23 +18,33 @@
                         <div class="form-group">
                             <label >Username</label>
                             <div id=message_username></div>
-                            <input type="text" name="username" id="username" class="form-control"   placeholder="Username...">
+                            <input type="text" name="username" id="username" class="form-control"   
+                            placeholder="Username..." value="<?php echo $row['username'] ?>">
                         </div>
                         <div class="form-group">
                             <label >Email address</label>
-                            <input type="email" name="email" id="email" class="form-control"   placeholder="Enter email...">
+                            <input type="email" name="email" id="email" class="form-control"   
+                            placeholder="Enter email..." value="<?php echo $row['email'] ?>">
                         </div>
                         <div class="form-group">
                             <label >Password</label>
-                            <input type="password" name="password" id="password" class="form-control"  placeholder="Password...">
+                            <input type="password" name="password" id="password" class="form-control"  
+                            placeholder="Password..." value="<?php echo $row['password'] ?>">
                         </div>
                         <div class="form-group">
                             <label >Fullname</label>
-                            <input type="text" name="fullname" id="fullname" class="form-control"  placeholder="Fullname...">
+                            <input type="text" name="fullname" id="fullname" class="form-control"  
+                            placeholder="Fullname..." value="<?php echo $row['fullname'] ?>">
                         </div>
                         <div class="form-group">
                             <label >Address</label>
-                            <input type="text" name="address" id="address" class="form-control"  placeholder="Address...">
+                            <input type="text" name="address" id="address" class="form-control"  
+                            placeholder="Address..." value="<?php echo $row['address'] ?>">
+                        </div>
+                        <div class="form-group">
+                            <label >Vai trò</label>
+                            <input type="text" name="level" id="level" class="form-control"  
+                            placeholder="" value="<?php echo $row['level'] ?>">
                         </div>
                     
                         <button type="submit" name="submit" id="submit" class="btn btn-primary">Register</button>
@@ -48,13 +58,13 @@
                 
                     if($data["result"]==true){?>
                         <h3 class="alert alert-success"> 
-                        <?php echo "Đăng ký thành công"; ?>
+                        <?php echo "Sửa thành công"; ?>
                         </h3>
                      <?php    
                     }
                     else{ ?>
                         <h3 class="alert alert-warning"> 
-                        <?php echo "Đăng ký thất bại"; ?>
+                        <?php echo "Sửa thất bại"; ?>
                         </h3> 
             <?php }            
                     }?>

@@ -30,7 +30,7 @@ class ProductModel extends DB{
         return mysqli_query($this->connect,$sql);
     }
 
-    public function update_product($id,$name, $image, $price,$price_discount, $description,$category_id){
+    public function update($id,$name, $image, $price,$price_discount, $description,$category_id){
 
         $sql = "UPDATE product SET name ='$name', image ='$image', price ='$price',
         price_discount = '$price_discount',description='$description', category_id='$category_id'

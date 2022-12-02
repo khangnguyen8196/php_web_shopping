@@ -1,3 +1,12 @@
+    <?php
+        if(!isset($_COOKIE['id'])){
+            header("location:http://127.0.0.1/home_admin/view_login");
+        }
+        // if(!isset($_SESSION["id"])){
+        //     header("location:http://127.0.0.1/home_admin/view_login");
+        // }
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

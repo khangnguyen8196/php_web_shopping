@@ -15,7 +15,8 @@ class Home extends Controller {
 
     public function SayHi(){
         $this->viewuser("masterlayoutuser",[
-            "page"=>"content/index",
+            "page"=>"include/product",
+            "pro"=>$this->ProductModel->GetProduct(),
             "categories"=>$this->CategoryModel->ListAll(),
         ]);
     }

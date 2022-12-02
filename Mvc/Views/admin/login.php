@@ -4,12 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F8-Shop</title>
+    <title>Đăng nhập</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="/public/css/base.css" /> 
     <link rel="stylesheet" href="/public/css/main.css" />
     <link rel="stylesheet" href="./public/assets/fonts/fontawesome/css/all.min.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,700&display=swap" rel="stylesheet">
+<style>
+    .alert-warning {
+        color:red;
+        text-align: center;
+        font-size: 18px;
+        padding-bottom: 10px;
+        margin: 0;
+    }
+    .alert-success {
+        color:green;
+        text-align: center;
+        font-size: 18px;
+        padding-bottom: 10px;
+    }
+</style>
 </head>
 <body>
 <!-- Modal layout-->
@@ -18,12 +33,27 @@
 
         <div class="modal__body"> 
             <!-- Login form -->
-            <form class="auth-form"action="/Login/Login" method="post" enctype="multipart/form-data">
+            <form class="auth-form"action="/Home_admin/Login" method="post" enctype="multipart/form-data">
                 <div class="auth-form__container">
                     <div class="auth-form__header">
                         <h3 class="auth-form__heading">Đăng nhập</h3>
-                        <a href="/register" style="text-decoration: none"><span class="auth-form__switch-btn">Đăng ký</span></a>
+                        <a href="/Home_admin/view_add_user" style="text-decoration: none"><span class="auth-form__switch-btn">Đăng ký</span></a>
                     </div>
+                    <?php
+                if(isset($data["result"])){ 
+                
+                    if($data["result"]==true){?>
+                        <h3 class="alert alert-success "> 
+                        <?php echo "Đăng nhập thành công"; ?>
+                        </h3>
+                     <?php    
+                    }
+                    else{ ?>
+                        <h3 class="alert alert-warning "> 
+                        <?php echo "Đăng nhập thất bại"; ?>
+                        </h3> 
+            <?php }            
+                    }?>
 
                     <div class="auth-form__form">
                         <div class="auth-form__group">
@@ -61,21 +91,7 @@
                         </span>
                     </a>
                 </div>
-                <?php
-                if(isset($data["result"])){ 
-                
-                    if($data["result"]==true){?>
-                        <h3 class="alert alert-success justify-content-center"> 
-                        <?php echo "Đăng nhập thành công"; ?>
-                        </h3>
-                     <?php    
-                    }
-                    else{ ?>
-                        <h3 class="alert alert-warning justify-content-center"> 
-                        <?php echo "Đăng nhập thất bại"; ?>
-                        </h3> 
-            <?php }            
-                    }?>
+               
             </form>
         </div>
    </div>

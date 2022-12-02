@@ -19,6 +19,15 @@ class UserModel extends DB{
         }
         return json_encode($result);
     }
+    public function Insert($id,$email,$password,$level){
+        $sql="INSERT INTO  users (id,email,password,level) 
+        VALUES('$id','$email', '$password', $level)";
+        $result=false;
+        if(mysqli_query($this->connect, $sql)){
+            $result= true;
+        }
+        return json_encode($result);
+    }
 
     public function checkUsername($username){
         $sql ="SELECT id FROM users WHERE username='$username'";
@@ -36,15 +45,30 @@ class UserModel extends DB{
         return mysqli_query($this->connect,$sql);
     }
 
-    public function update ($id,$username,$email,$password,$fullname,$address){
-        $sql = "UPDATE product SET  username ='$username', 
-        email ='$email', password ='$password', fullname = '$fullname', '$address'
-        WHERE id=$id";
+    public function update ($id,$username,$email,$password,$fullname,$address,$level){
+        $sql = "UPDATE users SET username='$username',
+        email='$email',password='$password',fullname='$fullname',
+        address='$address',level='$level'
+        WHERE id='$id'";
+        $result =false;
+        if(mysqli_query($this->connect, $sql)){
+            $result=true;
+        }
+        return json_encode($result);
+    }
+
+    public function delete($id){
+        $sql="DELETE FROM users WHERE id=$id";
         $result=false;
         if(mysqli_query($this->connect, $sql)){
             $result= true;
         }
         return json_encode($result);
+    }
+    
+    public function max($email){
+        $sql="SELECT * FROM users WHERE email='$email'";
+        return mysqli_query($this->connect,$sql); 
     }
 
 

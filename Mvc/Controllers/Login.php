@@ -20,32 +20,34 @@ class Login extends Controller {
     }
 
     public function Login(){
-        $message=false;
+        $result_mess=false;
         if(isset($_POST["submit"])){
-            $username=$_POST['username'];
+            $email=$_POST['email'];
             $password_input=$_POST['password'];
-            if(empty( $username)|| empty($password_input)){
-                $this->view("login",[
-                    "result"=>$message
+            if(empty( $email)|| empty($password_input)){
+                $this->viewuser("masterlayoutuser",[
+                    "page" =>"content/login",
+                    "result"=> $result_mess,
                 ]);
             }
-            $result = $this->LoginModel->LoginUser($username);
+            $result = $this->LoginModel->LoginUser($email);
             if(mysqli_num_rows($result)>0){
                 while($row= mysqli_fetch_array($result)){
-                    
                     $id=$row["id"];
-                    $username=$row["username"];
+                    $email=$row["email"];
                     $password=$row["password"];
                 }
                 if(password_verify($password_input, $password)){
                     $_SESSION["id"]=$id;
-                    $this->view("Master",[
-                        "page"=>"dash/index",
-                        "result"=>$message=true,
+                    $this->viewuser("masterlayoutuser",[
+                        "page"=>"include/product",
+                        "pro"=>$this->ProductModel->GetProduct(),
+                        "result"=>$result_mess=true,
                     ]);
                 }else {
-                    $this->view("login",[
-                        "result"=>$message
+                    $this->viewuser("masterlayoutuser",[
+                        "page" =>"content/login",
+                        "result"=> $result_mess,
                     ]);
                 }
             }
@@ -55,8 +57,10 @@ class Login extends Controller {
     public function logout(){
         unset($_SESSION["id"]);
         session_destroy();
-        $this->view("login",[
-
+        $this->viewuser("masterlayoutuser",[
+            "page"=>"include/product",
+            "pro"=>$this->ProductModel->GetProduct(),
+            "categories"=>$this->CategoryModel->ListAll(),
         ]);
     }
     

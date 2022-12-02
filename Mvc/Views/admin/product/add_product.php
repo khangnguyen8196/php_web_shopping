@@ -9,31 +9,31 @@
 </head>
 <body>
 
-    
-<form action="/Product/Add" method="post" enctype="multipart/form-data" >
+
+<form action="/Home_admin/Add" method="post" enctype="multipart/form-data"  class="col-lg-4">
     <label>Tên sản phẩm</label>
     <br/>
-    <input type="text" name="name">
+    <input class="form-control" type="text" name="name">
     <br/>
     <label>Ảnh sản phẩm</label>
     <br/>
-    <input type="file" name="image" value="Chọn ảnh">
+    <input class="" type="file" name="image" value="Chọn ảnh">
     <br/>
     <label>Giá sản phẩm</label>
     <br/>
-    <input type="text" name="price">
+    <input class="form-control" type="text" name="price">
     <br/>
     <label>Giá sản phẩm sau khi giảm</label>
     <br/>
-    <input type="text" name="price_discount">
+    <input  class="form-control"type="text" name="price_discount">
     <br/>
     <label>Mô tả sản phẩm</label>
     <br/>
-    <input type="text" name="description">
+    <input class="form-control" type="text" name="description">
     <br/>
     <label>Danh mục sản phẩm</label>
     <br/>
-    <select class="col-1">
+    <select class="form-control" name="category_id">
       <option name="category_id">1</option>
       <option name="category_id">2</option>
     </select>

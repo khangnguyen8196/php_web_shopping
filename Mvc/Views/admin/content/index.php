@@ -37,7 +37,7 @@
                                 <td><?php echo $row['fullname'];  ?></td>
                                 <td><?php echo $row['address'];  ?></td>
                                 <td><?php echo $row['level'];  ?></td>
-                                <td><a href="content/delete_user/ <?php echo $row['id']  ?>" class="btn btn-primary">Delete</a></td>
+                                <td><a href="/Home_admin/delete_user/ <?php echo $row['id']  ?>" class="btn btn-primary">Delete</a></td>
                                 <td><a href="/Home_admin/edit_user/ <?php echo $row['id']  ?>" class="btn btn-primary">Edit</a></td>                               
                             </tr>
                       <?php 
