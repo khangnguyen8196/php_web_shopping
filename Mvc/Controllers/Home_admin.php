@@ -7,7 +7,7 @@
             $this->LoginModel = $this->model("LoginModel");
         }
 
-        public function SayHi(){
+        public function product(){
             $this->viewadmin("masterlayout",[
                 "page" =>"include/index",
 
@@ -135,13 +135,13 @@
                         $password=$row["password"];
                     }
                     if(password_verify($password_input, $password)){
-                        // $_SESSION["id"]=$id;
-                        // $this->viewadmin("masterlayout",[
-                        //     "page"=>"include/index",
-                        //     "result"=>$result_mess=true,
-                        // ]);
-                        setcookie("id","email",time()+3600,"/",0);
-                        header("location:http://127.0.0.1/home_admin");
+                        $_SESSION["id"]=$id;
+                        $this->viewadmin("masterlayout",[
+                            "page"=>"include/index",
+                            "result"=>$result_mess=true,
+                        ]);
+                        // setcookie("id","email",time()+3600,"/",0);
+                        // header("location:http://127.0.0.1/home_admin");
                     }else {
                         $this->viewadmin("login",[
                             "result"=> $result_mess,
@@ -152,33 +152,104 @@
         }
     
         public function admin_logout(){
-            // unset($_SESSION["id"]);
-            // session_destroy();
-            setcookie("id",true,time()-3600,"/");
+            unset($_SESSION["id"]);
+            session_destroy();
+            // setcookie("id",true,time()-3600,"/");
             $this->viewadmin("login",[
     
             ]);
         }
         
+        // Category
+
+        public function view_cat(){
+            $this->viewadmin("masterlayout",[    
+                "page" =>"category/category",
+                "categories"=>$this->CategoryModel->ListAll(),
+            ]);
+        } 
+        public function view_add_cat(){
+            $this->viewadmin("masterlayout",[    
+                "page" =>"category/add_cat",
+            ]);
+        }
+        public function add_cat(){
+            $result_mess=false;
+            if(isset($_POST['btn_cat'])){
+                $name=$_POST['name'];
+                if(empty($_POST['name'])){
+                    $this->viewadmin("masterlayout",[
+                        "page" =>"category/add_cat",
+                        "result"=> $result_mess,
+                    ]);
+                }
+                else {
+                    $kq = $this->CategoryModel->insert_cat($name);
+                        $this->viewadmin("masterlayout",[
+                            "page" =>"category/add_cat",
+                            "result"=>$kq
+                        ]);
+                    
+                }
+            }
+        }
+
+        public function delete_cat($id){
+            $this->CategoryModel->delete($id);
+            $this->viewadmin("masterlayout",[
+                "page"=>"category/category",
+                "categories"=>$this->CategoryModel->ListAll(),
+            ]);
+        }
+
+        public function edit_cat ($id){
+            $this->viewadmin("masterlayout",[
+                "page" =>"category/edit_cat",
+                "edit"=>$this->CategoryModel->edit($id),
+            ]);
+        }
+
+        public function update_cat($id){
+            $result_mess=false;
+            if(isset($_POST['btn_update'])){
+                if(empty($_POST['name'])){
+                        $this->viewadmin("masterlayout",[
+                            "page"=>"category/edit_cat",
+                            "result"=>$result_mess,
+                        ]);   
+                    }else {
+                        $name=$_POST['name'];
+                        $kq=$this->CategoryModel->update($id,$name);
+                        $this->viewadmin("masterlayout",[
+                            "page"=>"category/category",
+                            "categories"=>$this->CategoryModel->ListAll(),
+                            "result"=>$kq,
+                            "edit"=>$this->CategoryModel->edit($id),
+                        ]);
+                    }  
+            }
+        }
+
+
 
         // product
         public function view_product(){
             $this->viewadmin("masterlayout",[
                 "page"=>"product/product",
-                "pro"=>$this->ProductModel->GetProduct(),
+                "product_all"=>$this->ProductModel->get_all_product(),
             ]);
         }
 
         public function view_add_product(){
             $this->viewadmin("masterlayout",[
                 "page"=>"product/add_product",
-                "pro"=>$this->ProductModel->GetProduct(),
+                "product_all"=>$this->ProductModel->get_all_product(),
+                "categories"=>$this->CategoryModel->ListAll(),
             ]);
         }
 
         public function Add(){
             if(isset($_POST['btn'])){
-                
                 $name=$_POST['name'];
                 // chỉ lấy tên hình ảnh
                 $image=$_FILES['image']['name'];
@@ -192,7 +263,7 @@
                 move_uploaded_file( $image_tmp_name,'./public/assets/img/product/'.$image);
                 $this->viewadmin("masterlayout",[
                     "page"=>"product/product",
-                    "pro"=>$this->ProductModel->GetProduct(),
+                    "product_all"=>$this->ProductModel->get_all_product(),
                 ]);
             }
         }
@@ -201,13 +272,14 @@
             $kq=$this->ProductModel->delete_product($id);
             $this->viewadmin("masterlayout",[
                 "page"=>"product/product",
-                "pro"=>$this->ProductModel->GetProduct(),
+                "product_all"=>$this->ProductModel->get_all_product(),
             ]);
         }
 
         public function view_edit_product($id){
             $this->viewadmin("masterlayout",[
                 "page"=>"product/edit_product",
+                "categories"=>$this->CategoryModel->ListAll(),
                 "edit"=>$this->ProductModel->edit($id),
             ]);
         }
@@ -215,7 +287,6 @@
         public function update_product($id){
             $result_mess=false;
             if(isset($_POST['btn_update'])){
-               
                 if(empty($_POST['name'])||empty($_FILES['image']['name'])
                     ||empty($_FILES['image']['tmp_name'])||empty($_POST['price'])
                     ||empty($_POST['price_discount'])||empty($_POST['description'])
@@ -223,7 +294,6 @@
                         $this->viewadmin("masterlayout",[
                             "page"=>"product/edit_product",
                             "result"=>$result_mess,
-                            "edit"=>$this->ProductModel->edit($id),
                         ]);   
                     }else {
                         $name=$_POST['name'];
@@ -239,7 +309,8 @@
                         move_uploaded_file( $image_tmp_name,'./public/assets/img/product/' . $image);
                         $this->viewadmin("masterlayout",[
                             "page"=>"product/product",
-                            "pro"=>$this->ProductModel->GetProduct(),
+                            "product_all"=>$this->ProductModel->get_all_product(),
+                            "categories"=>$this->CategoryModel->ListAll(),
                             "result"=>$kq,
                             "edit"=>$this->ProductModel->edit($id),
                         ]);

@@ -12,7 +12,7 @@ class Login extends Controller {
         $this->UserModel = $this->model("UserModel");
         $this->LoginModel = $this->model("LoginModel");
     }
-    public function SayHi(){
+    public function product(){
         //view
         $this->viewuser("masterlayoutuser",[    
             "page"=>"content/login",
@@ -41,8 +41,8 @@ class Login extends Controller {
                     $_SESSION["id"]=$id;
                     $this->viewuser("masterlayoutuser",[
                         "page"=>"include/product",
-                        "pro"=>$this->ProductModel->GetProduct(),
-                        "result"=>$result_mess=true,
+                        "product"=>$this->ProductModel->get_all_product(),
+                        "categories"=>$this->CategoryModel->ListAll(),
                     ]);
                 }else {
                     $this->viewuser("masterlayoutuser",[
@@ -59,7 +59,7 @@ class Login extends Controller {
         session_destroy();
         $this->viewuser("masterlayoutuser",[
             "page"=>"include/product",
-            "pro"=>$this->ProductModel->GetProduct(),
+            "product"=>$this->ProductModel->get_product(),
             "categories"=>$this->CategoryModel->ListAll(),
         ]);
     }

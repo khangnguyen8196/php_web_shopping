@@ -34,8 +34,13 @@
     <label>Danh mục sản phẩm</label>
     <br/>
     <select class="form-control" name="category_id">
-      <option name="category_id">1</option>
-      <option name="category_id">2</option>
+      <?php
+        while($category=mysqli_fetch_array($data["categories"])){?>
+            <option value="<?php echo $category["id"] ?>">
+                <?php echo $category["name"] ?>
+          </option>
+       <?php }
+      ?>
     </select>
     <br/>
     <input type="submit" name="btn" value="ADD">

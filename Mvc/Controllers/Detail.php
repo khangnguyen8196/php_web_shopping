@@ -1,5 +1,5 @@
 <?php
-class Product extends Controller {
+class Detail extends Controller {
     public $CategoryModel;
     public $ProductModel;
     public $UserModel;
@@ -12,34 +12,16 @@ class Product extends Controller {
         $this->UserModel = $this->model("UserModel");
         $this->LoginModel = $this->model("LoginModel");
     }
-
-    public function product(){
-        $this->viewuser("masterlayoutuser",[
-            "page"=>"include/product",
-            "product"=>$this->ProductModel->get_product(),
-            "categories"=>$this->CategoryModel->ListAll(),
-        ]);
-    }
-    public function show($category_id){
-        
-        $this->viewuser("masterlayoutuser",[
-            "page"=>"include/product",
-            "product"=>$this->ProductModel->getByCategoryId($category_id),
-            "categories"=>$this->CategoryModel->ListAll(),
-        ]);
-    }
-
-    public function detail($id){
+    public function product_detail($id){
         $this->viewuser("masterlayoutproduct",[
             "page"=>"product/detail",
-            "detail"=>$this->ProductModel->findById($id)
+            "detail"=>$this->ProductModel->Get_one_product($id)
         ]);
     }
-
     public function cart_product($id){
         $this->viewuser("masterlayoutproduct",[
             "page"=>"product/cart",
-            "cart"=>$this->ProductModel->findById($id),
+            "cart"=>$this->ProductModel->Get_one_product($id),
         ]);
     }
 

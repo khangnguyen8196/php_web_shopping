@@ -6,22 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>F8-Shop</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="../../../../public/css/base.css" /> 
-    <link rel="stylesheet" href="../../../../public/css/main.css" />
-    <link rel="stylesheet" href="../../../../public/css/grid.css" />
-    <link rel="stylesheet" href="../../../../public/css/responsive.css" />
-    <link rel="stylesheet" href="../../../../public/css/product.css" />
-    <!-- <link rel="stylesheet" href="/public/css/banner.css" /> -->
-    <link rel="stylesheet" href="./public/assets/fonts/fontawesome/css/all.min.css"> 
+    <link rel="stylesheet" href="../../../public/css/base.css" /> 
+    <link rel="stylesheet" href="../../../public/css/main.css" />
+    <link rel="stylesheet" href="../../../public/css//grid.css" />
+    <link rel="stylesheet" href="../../../public/css/responsive.css" />
+    <link rel="stylesheet" href="../../../public/css//product.css" />
+    <link rel="stylesheet" href="../../../public/assets/fonts/fontawesome/css/all.min.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
     <!-- Block Element Modifier-->
    <div class="app">
+    
         <header class="header">
             <div class="grid">
-                <nav class="header__navbar">
+                <nav class="header__navbar ">
                     <ul class="header__navbar-list">
                         <li class="header__navbar-item header__navbar-item--has-qr header__navbar-item--separate">
                             Vào cửa hàng trên ứng dụng 
@@ -310,55 +310,133 @@
                 </div>
             </div>
         </header>
-
-        <div class="app__container">
-            <div class="grid wide">
-                <?php include("banner.php") ?>
-                
-                <div class="grid__row app__content">
-                    <?php include ("catList.php "); ?>
-                    <div class="grid__column-10">
-                        <div class="home-filter">
-                            <span class="home-filter__label">Sắp xếp theo</span>
-                            <button class="home-filter__btn btn">Phổ biến</button>
-                            <button class="home-filter__btn btn btn--primary">Mới nhất</button>
-                            <button class="home-filter__btn btn">Bán chạy</button>
-
-                            <div class="select-input">
-                                <span class="select-input__label">Giá</span>
-                                <i class="select-input__icon fa-solid fa-angle-down"></i>
-                                
-                                <ul class="select-input__list">
-                                    <li class="select-input__item">
-                                        <a href="" class="select-input__link">Giá thấp đến cao</a>                                      
-                                    </li>
-                                    <li class="select-input__item">                                     
-                                        <a href="" class="select-input__link">Giá cao đến thấp</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="home-filter__page">
-                                <span class="home-filter__page-num">
-                                    <span class="home-filter__page-current">1</span>/14
-                                </span>
-                                <div class="home-filter__page-control">
-                                    <a href="" class="home-filter__page-btn home-filter__page-btn--disabled">
-                                        <i class="home-filter__page-icon fa-solid fa-angle-left"></i>
-                                    </a>
-                                    <a href="" class="home-filter__page-btn">
-                                        <i class="home-filter__page-icon fa-solid fa-angle-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <?php include("product.php") ?>                       
+            <div class="app__container">
+                <div class="grid wide">  
+                    <div class="grid__row app__content">
+                        <?php require_once "./Mvc/Views/user/".$data["page"].".php" ?>
                     </div>
-                    
                 </div>
             </div>
-        </div>
+        <footer class="footer">
+            <div class="grid">
+                <div class="grid__row">
+                    <div class="grid__column-2-4">
+                        <h3 class="footer__heading">Chăm sóc khách hàng</h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Trung tâm trợ giúp</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">F8-Shop Mall</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Hướng dẫn mua hàng</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid__column-2-4">
+                        <h3 class="footer__heading">Giới thiệu</h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Giới thiệu</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link"> Tuyển dụng</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Điều khoản</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid__column-2-4">
+                        <h3 class="footer__heading">Danh mục</h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Top bán chạy</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Đang giảm giá</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Phụ kiện máy tính</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid__column-2-4">
+                        <h3 class="footer__heading">Theo dõi</h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">
+                                    <i class="footer-item__icon fab fa-facebook"></i>
+                                    Facebook
+                                </a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">
+                                    <i class="footer-item__icon fab fa-instagram"></i>
+                                    Instagram
+                                </a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">
+                                    <i class="footer-item__icon fab fa-linkedin"></i>
+                                    linkedin
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid__column-2-4">
+                        <h3 class="footer__heading">Vào cửa hàng trên ứng dụng</h3>
+                        <div class="footer__download">
+                            <a href="" class="footer__download-link">
+                                <img src="./assets/img/qr-code.png" alt="Download QR" class="footer__download-qr">
+                            </a>
+                            <div class="footer__download-apps">
+                                <a href="" class="footer__download-link">
+                                    <img src="./assets/img/google-play.png" alt="Google Play" class="footer__download-app-img">
+                                </a>
+                                <a href="" class="footer__download-link">
+                                    <img src="./assets/img/app-store.png" alt="App Store" class="footer__download-app-img">
+                                </a>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                
+            </div>
+            <div class="footer__bottom">
+                <div class="grid">
+                    <div class="grid__row">
+                        <div class="footer__regulation">
+                            <a href="" class="footer__regulation-link">CHÍNH SÁCH BẢO MẬT</a>
+                            <a href="" class="footer__regulation-link">QUY CHẾ HOẠT ĐỘNG</a>
+                            <a href="" class="footer__regulation-link">CHÍNH SÁCH VẬN CHUYỂN</a>
+                            <a href="" class="footer__regulation-link">CHÍNH SÁCH TRẢ HÀNG VÀ HOÀN TIỀN</a>
+                        </div>
+                        <div class="footer__license">
+                            <a href="" class="footer__license-link">
+                                <img src="./assets/img/bocongthuong.png" alt="" class="footer__license-img">
+                            </a>
+                            <a href="" class="footer__license-link">
+                                <img src="./assets/img/bocongthuong.png" alt="" class="footer__license-img">
+                            </a>
+                            <a href="" class="footer__license-link">
+                                <img src="./assets/img/mocvantay.jfif" alt="" class="footer__license-img-fingerprints">
+                            </a>
+                        </div>
+                        <div class="footer__text">
+                            <p >Công ty TNHH Shopee</p>
+                            <p>Địa chỉ: Tầng 4-5-6, Tòa nhà Capital Place, số 29 đường Liễu Giai, Phường Ngọc Khánh, Quận Ba Đình, Thành phố Hà Nội, Việt Nam. Tổng đài hỗ trợ: 19001221 - Email: cskh@hotro.shopee.vn</p>
+                            <p>Chịu Trách Nhiệm Quản Lý Nội Dung: Nguyễn Đức Trí - Điện thoại liên hệ: 024 73081221 (ext 4678)</p>
+                            <p>Mã số doanh nghiệp: 0106773786 do Sở Kế hoạch & Đầu tư TP Hà Nội cấp lần đầu ngày 10/02/2015</p>
+                            <p>© 2022 - Bản quyền thuộc về Công ty TNHH Shopee</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
-   </div>
-
-   </body>
-</html>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="public/js/main.js"></script>

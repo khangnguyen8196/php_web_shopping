@@ -50,7 +50,7 @@
                 <tbody>
                     <?php
                     $i=1;
-                    while ($row = mysqli_fetch_array($data["pro"])){ ?>
+                    while ($row = mysqli_fetch_array($data["product_all"])){ ?>
                              <tr>
                                 <td><?php echo $i;  ?></td>
                                 <td><?php echo $row['name']?></td>

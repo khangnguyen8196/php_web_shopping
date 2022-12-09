@@ -13,45 +13,13 @@ class Home extends Controller {
         $this->LoginModel = $this->model("LoginModel");
     }
 
-    public function SayHi(){
+    public function product(){
         $this->viewuser("masterlayoutuser",[
             "page"=>"include/product",
-            "pro"=>$this->ProductModel->GetProduct(),
+            "product"=>$this->ProductModel->get_product(),
             "categories"=>$this->CategoryModel->ListAll(),
         ]);
     }
-
-    function Show(){
-        // //model
-        // $user =$this->model("UserModel");
-        // // echo  $user->Tong($a, $b);
-
-        // // view
-        // $this->view("Master",[
-        //     "Page"=>"news",
-            
-        //     "nguoidung"=>$user->GetUser()
-        // ]);
-    }
-
-    function Category(){
-        $pro =$this->model("ProductModel");
-        echo $pro->GetProduct();
-    }
-
-    // function Mul($a,$b){
-    //     $ti =$this->model("UserModel");
-    //     $tong=  $ti->Tong($a, $b);
-
-    //     //view
-    //     $this->view("Master",
-    //         [
-    //         "number"=>$tong,
-    //         "color"=>"red",
-    //         "Page"=>"contact"
-        
-    //     ]);
-    // }
 }
 
 

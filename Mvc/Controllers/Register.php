@@ -14,7 +14,7 @@ class Register extends Controller {
         $this->LoginModel = $this->model("LoginModel");
     }
 
-    public function SayHi(){
+    public function product(){
         //view
         $this->viewuser("masterlayoutuser",[           
             "page"=>"content/register"

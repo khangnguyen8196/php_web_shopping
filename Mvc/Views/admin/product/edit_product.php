@@ -18,7 +18,7 @@
             <label>Ảnh sản phẩm</label>
             <br/>
             <input class="" type="file" name="image" value="Chọn ảnh">
-            <span><img width = "50" height="50" src="./public/assets/img/product/<?php echo$row['image']?>"></span>
+            <span><img width = "50" height="50" src="../../../../public/assets/img/product/<?php echo$row['image']?>"></span>
             <br/>
             <label>Giá sản phẩm</label>
             <br/>
@@ -35,11 +35,16 @@
             <label>Danh mục sản phẩm</label>
             <br/>
             <select class="form-control" name="category_id" value="<?php echo $row['category_id']?>">
-              <option >1</option>
-              <option >2</option>
+            <?php
+              while($category=mysqli_fetch_array($data["categories"])){?>
+                  <option value="<?php echo $category["id"] ?>">
+                      <?php echo $category["name"] ?>
+                  </option>
+            <?php }
+            ?>    
             </select>
             <br/>
-            <input type="submit" name="btn_update" value="ADD">
+            <input type="submit" name="btn_update" value="Edit">
         </form>
      <?php }
       ?>

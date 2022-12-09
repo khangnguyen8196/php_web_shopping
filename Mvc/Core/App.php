@@ -1,12 +1,12 @@
 <?php
 class App {
-    //https://web_shopping.com/Home/SayHi/1/2/3
+    //https://web_shopping.com/Home/product/1/2/3
     protected $controller="Home";
-    protected $action="SayHi";
+    protected $action="product";
     protected $params=[];
 
     function __construct(){
-        //Array ( [0] => Home [1] => SayHi [2] => 1 [3] => 2 [4] => 3 )
+        //Array ( [0] => Home [1] => product [2] => 1 [3] => 2 [4] => 3 )
          $arr =$this->UrlProcess(); 
        
         
