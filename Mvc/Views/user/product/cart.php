@@ -1,13 +1,14 @@
 <!-- Begin Page Content -->
+
 <div class="container-fluid">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <a href="/Home">Trang chủ</a>
+            <a href="/">Trang chủ</a>
             <h6 class="m-0 font-weight-bold text-primary">Giỏ hàng</h6>
         </div>
         <div class="card-body">
             
-                <form id="cart-form" action="cart.php?action=submit" method="post">
+                <form id="cart-form" action="/Cart/cart_product/" method="post">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <tr>
                                 <th class="product-number">STT</th>
@@ -27,9 +28,9 @@
                                         <td class="product_name"><?php echo $row['name'];  ?></td>
                                         <td class="product_img"><img width="200" height="200" class="product-img" src="../../../../public/assets/img/product/<?php echo$row['image']?>" alt="hinh anh"></td>
                                         <td class="product_price"><?php echo $row['price'];  ?></td>
-                                        <td class="product_quantity"><input type="text" value="<?php echo "1";  ?>" name="quantity[1]" /></td>
+                                        <td class="product_quantity"><input type="text" value="<?php echo $_SESSION['cart'][$row['id']] ?>" name="quantity[<?php echo $row['id']?>]" /></td>
                                         <td class="product_money"><?php echo "20000000"  ?></td>
-                                        <td class="product-delete"><a href="//delete_user/ <?php echo $row['id']  ?>" class="">Delete</a></td>
+                                        <td class="product-delete"><a href="/Cart/del_cart <?php echo $row['id'];?>" class="">Delete</a></td>
                                     </tr>
                             <?php 
                             $i++;}

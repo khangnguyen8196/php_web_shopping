@@ -30,12 +30,15 @@ class Register extends Controller {
             $result_mess=false;
             $id="";
             // $username =$_POST["username"];
+            $username=$_POST["username"];
             $email =$_POST["email"];
             $pass1=$_POST["pass1"];
             $pass2=$_POST["pass2"];
-            $level="2";
-            if( empty($_POST["email"])
-                ||empty($_POST["pass1"])||empty($_POST["pass2"])
+            $fullname=$_POST["fullname"];
+            $address=$_POST["address"];
+            $level="1";
+            if(empty($_POST["username"]) ||empty($_POST["email"])
+                ||empty($_POST["pass1"])||empty($_POST["pass2"])||empty($_POST["fullname"])||empty($_POST["address"])
                 ){
                     $this->viewuser("masterlayoutuser",[
                         "page" =>"content/register",
@@ -62,7 +65,7 @@ class Register extends Controller {
                 // $address =$_POST["address"];
         
                 // 2. insert database bảng user
-                $kq=$this->UserModel->Insert($id,$email,$password,$level);  
+                $kq=$this->UserModel->InsertNewUser($id,$username,$email,$password,$fullname,$address,$level);  
                 // 3.show chữ ok fail
                 $this->viewuser("masterlayoutuser",[
                     "page" =>"content/register",

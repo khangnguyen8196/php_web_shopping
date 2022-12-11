@@ -2,9 +2,9 @@
         // if(!isset($_COOKIE['id'])){
         //     header("location:http://127.0.0.1/home_admin/view_login");
         // }
-        if(!isset($_SESSION["id"])){
+        if(!isset($_SESSION["username"])){
             header("location:http://127.0.0.1/home_admin/view_login");
-        }
+        }  
     ?>
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Trang quản lý Admin</title>
     <base href="http://127.0.0.1/">
     <!-- Custom fonts for this template-->
     <link href="../../../../public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

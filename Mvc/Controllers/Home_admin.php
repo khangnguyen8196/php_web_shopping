@@ -1,3 +1,4 @@
+
 <?php
     class Home_admin extends Controller {
         public function __construct(){
@@ -119,22 +120,23 @@
         public function Login(){
             $result_mess=false;
             if(isset($_POST["submit"])){
-                $email=$_POST['email'];
+                $username=$_POST['username'];
                 $password_input=$_POST['password'];
-                if(empty( $email)|| empty($password_input)){
+                if(empty( $_POST['username'])|| empty($_POST['password'])){
                     $this->viewadmin("login",[
                         // "page" =>"content/login",
                         "result"=> $result_mess,
                     ]);
                 }
-                $result = $this->LoginModel->LoginUser($email);
-                if(mysqli_num_rows($result)>0){
+                $result = $this->LoginModel->LoginAdmin($username);
+                if(mysqli_num_rows($result)){
                     while($row= mysqli_fetch_array($result)){
                         $id=$row["id"];
-                        $email=$row["email"];
+                        $username=$row["username"];
                         $password=$row["password"];
                     }
                     if(password_verify($password_input, $password)){
+                        $_SESSION["username"]=$username;
                         $_SESSION["id"]=$id;
                         $this->viewadmin("masterlayout",[
                             "page"=>"include/index",
@@ -152,7 +154,7 @@
         }
     
         public function admin_logout(){
-            unset($_SESSION["id"]);
+            unset($_SESSION["username"]);
             session_destroy();
             // setcookie("id",true,time()-3600,"/");
             $this->viewadmin("login",[

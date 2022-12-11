@@ -6,7 +6,7 @@
     <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-laugh-wink"></i>
     </div>
-    <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+    <div class="sidebar-brand-text mx-3">Admin </sup></div>
 </a>
 
 <!-- Divider -->
@@ -36,7 +36,7 @@
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Danh mục sản phẩm:</h6>
+            <a class="collapse-item" href="/Home_admin/view_cat">Danh mục sản phẩm</a>
             <a class="collapse-item" href="/Home_admin/view_product">Sản phẩm</a>
             <a class="collapse-item" href="#">Nhà cung cấp</a>
             <a class="collapse-item" href="#">Tin tức </a>
@@ -99,7 +99,7 @@
         </a>
         <div id="collapseMenu" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="/Home_admin/view_user">Quản lý menu</a>
+                <a class="collapse-item" href="#">Quản lý menu</a>
             </div>  
         </div>
 </li>

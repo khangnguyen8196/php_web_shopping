@@ -29,14 +29,12 @@
                                 <div class="main__product-item-quantity">
                                     <div style="margin-right:15px">
                                         <div class="main__product-quantity-input">
-                                            <?php
-                                                if(isset($data['cart'])){
-                                                    while($cart=mysqli_fetch_array($data['cart'])){?>
-                                                         <form id="add-to-cart-form" action="/Product/cart_product/<?php $row['id']?>" method="post">
-                                                            <input type="text" name="quantity" value="1"> <br /><br />
-                                                            <input type="submit" name="btn_add" value="Add-cart" /> 
-                                                        </form>
-                                                <?php }}?>
+                                                <!-- <input type="text" name="quantity" value="1"> <br /><br />
+                                                <a  href="/Product/cart_product/" >Add_cart</a>  -->
+                                            <form id="add-to-cart-form" action="/Cart/add/<?php echo $row['id'] ?>" method="post">
+                                                <input type="text" name="quantity[<?php echo $row['id'] ?>]" value="1" size="2"> <br /><br />
+                                                <input type="submit" name="btn_add_cart" value="Add-cart" /> 
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

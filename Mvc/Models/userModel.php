@@ -19,16 +19,7 @@ class UserModel extends DB{
         }
         return json_encode($result);
     }
-    public function Insert($id,$email,$password,$level){
-        $sql="INSERT INTO  users (id,email,password,level) 
-        VALUES('$id','$email', '$password', $level)";
-        $result=false;
-        if(mysqli_query($this->connect, $sql)){
-            $result= true;
-        }
-        return json_encode($result);
-    }
-
+    
     public function checkUsername($username){
         $sql ="SELECT id FROM users WHERE username='$username'";
         $row = mysqli_query($this->connect, $sql);

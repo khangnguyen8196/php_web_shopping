@@ -37,19 +37,24 @@ class Product extends Controller {
     }
 
     public function cart_product($id){
+
         $this->viewuser("masterlayoutproduct",[
             "page"=>"product/cart",
-            "cart"=>$this->ProductModel->findById($id),
+            "cart"=>$this->ProductModel->findById($id)
         ]);
     }
 
-    // public function pro_cate ($id){
-    //     $this->viewuser("masterlayoutuser",[
-    //         "page"=>"include/category_product",
-    //         "categories"=>$this->CategoryModel->ListAll(),
-    //         "pro_cate"=>$this->ProductModel->get_product_category($id)
-    //     ]);
-    // }
+    
+    public function add($id){
+        if(isset($_POST['btn_add_cart'])){
+            $this->viewuser("masterlayoutproduct",[
+                "page"=>"product/cart",
+                "cart"=>$this->ProductModel->findById($id)
+            ]);
+        }
+       
+    }
+
   
 
 }

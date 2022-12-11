@@ -19,6 +19,12 @@ class ProductModel extends DB{
         return mysqli_query($this->connect,$sql);
     }
 
+    public function cartBy(){
+        $sql="SELECT * FROM product WHERE id LIMIT 1";
+        return mysqli_query($this->connect,$sql);
+    }
+
+
     // public function get_product_category($id){
     //     $sql ="SELECT product.name as 'name', product.image as 'image', product.price as 'price',
     //     product.price_discount as 'price_discount',product.description as 'description' 

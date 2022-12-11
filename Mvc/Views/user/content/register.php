@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>F8-Shop</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="/public/css/base.css" /> 
-    <link rel="stylesheet" href="/public/css/main.css" />
+    <link rel="stylesheet" href="../../../../public/css/base.css" /> 
+    <link rel="stylesheet" href="../../../../public/css/main.css" />
     <link rel="stylesheet" href="./public/assets/fonts/fontawesome/css/all.min.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,700&display=swap" rel="stylesheet">
 </head>
@@ -43,6 +43,9 @@
 
                         <div class="auth-form__form">
                             <div class="auth-form__group">
+                                <input type="text" name="username" class="auth-form__input" placeholder="Nhập tên đăng nhập">
+                            </div>
+                            <div class="auth-form__group">
                                 <input type="text" name="email" class="auth-form__input" placeholder="Email của bạn">
                             </div>
                             <div class="auth-form__group">
@@ -50,6 +53,12 @@
                             </div>
                             <div class="auth-form__group">
                                 <input type="password" name="pass2" class="auth-form__input" placeholder="Nhập lại mật khẩu">
+                            </div>
+                            <div class="auth-form__group">
+                                <input type="text" name="fullname" class="auth-form__input" placeholder="Nhập họ và tên">
+                            </div>
+                            <div class="auth-form__group">
+                                <input type="text" name="address" class="auth-form__input" placeholder="Địa chỉ liên hệ">
                             </div>
                         </div>
                         <div class="auth-form__aside">
@@ -61,7 +70,7 @@
                         </div>
 
                         <div class="auth-form__controls">
-                            <button class="btn btn--normal auth-form__controls-back ">TRỞ LẠI</button>
+                            <a href="/" class="btn btn--normal auth-form__controls-back ">TRỞ LẠI</a>
                             <button type="submit" name="submit" class="btn btn--primary">ĐĂNG KÝ</button>
                         </div>
                     </div>

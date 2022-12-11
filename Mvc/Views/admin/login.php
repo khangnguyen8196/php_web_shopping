@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập</title>
+    <base href="http://127.0.0.1/Home_admin/">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="/public/css/base.css" /> 
     <link rel="stylesheet" href="/public/css/main.css" />
@@ -57,7 +58,7 @@
 
                     <div class="auth-form__form">
                         <div class="auth-form__group">
-                            <input type="text" name="email" class="auth-form__input" placeholder="Email của bạn">
+                            <input type="text" name="username" class="auth-form__input" placeholder="Username của bạn">
                         </div>
                         <div class="auth-form__group">
                             <input type="password" name="password" class="auth-form__input" placeholder="Mật khẩu của bạn">
